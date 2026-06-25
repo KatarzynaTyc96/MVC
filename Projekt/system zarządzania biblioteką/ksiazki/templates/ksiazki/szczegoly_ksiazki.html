@@ -1,0 +1,17 @@
+{% extends 'ksiazki/baza.html' %}
+
+{% block content %}
+<section class="karta">
+    <h2>{{ ksiazka.tytul }}</h2>
+    <p><strong>Autor:</strong> {{ ksiazka.autor }}</p>
+    <p><strong>Rok wydania:</strong> {{ ksiazka.rok_wydania }}</p>
+    <p><strong>Opis:</strong> {{ ksiazka.opis|default:'Brak opisu.' }}</p>
+    <p><strong>Data dodania:</strong> {{ ksiazka.data_dodania|date:'d.m.Y H:i' }}</p>
+
+    <div class="akcje duze-akcje">
+        <a class="przycisk" href="{% url 'edytuj_ksiazke' ksiazka.pk %}">Edytuj</a>
+        <a class="przycisk przycisk-usun" href="{% url 'usun_ksiazke' ksiazka.pk %}">Usuń</a>
+        <a href="{% url 'lista_ksiazek' %}">Powrót do listy</a>
+    </div>
+</section>
+{% endblock %}

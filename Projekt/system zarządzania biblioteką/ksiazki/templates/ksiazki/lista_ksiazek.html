@@ -1,0 +1,72 @@
+{% extends 'ksiazki/baza.html' %}
+
+{% block content %}
+<section class="karta">
+    <div class="gorny-wiersz">
+        <h2>Lista książek</h2>
+        <a class="przycisk" href="{% url 'dodaj_ksiazke' %}">Dodaj książkę</a>
+    </div>
+
+    <form method="get" class="formularz-filtrowania">
+        <div class="wiersz-filtrow">
+            <div class="pole-filtra">
+                <label for="szukaj">Wyszukaj</label>
+                <input id="szukaj" type="text" name="szukaj" value="{{ szukaj }}" maxlength="200" placeholder="Tytuł lub autor">
+            </div>
+
+            <div class="pole-filtra">
+                <label for="autor">Autor</label>
+                <select id="autor" name="autor">
+                    <option value="">Wszyscy autorzy</option>
+                    {% for pozycja in autorzy %}
+                        <option value="{{ pozycja }}" {% if pozycja == autor %}selected{% endif %}>{{ pozycja }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="pole-filtra">
+                <label for="rok">Rok wydania</label>
+                <input id="rok" type="number" name="rok" value="{{ rok }}" min="1" max="2100" placeholder="np. 1890">
+            </div>
+        </div>
+
+        <div class="przyciski-filtrow">
+            <button type="submit">Filtruj</button>
+            <a href="{% url 'lista_ksiazek' %}">Wyczyść filtry</a>
+        </div>
+    </form>
+
+    {% if szukaj or autor or rok %}
+        <p class="tekst-pomocniczy">Liczba wyników: {{ ksiazki|length }}</p>
+    {% endif %}
+
+    {% if ksiazki %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Tytuł</th>
+                    <th>Autor</th>
+                    <th>Rok wydania</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ksiazka in ksiazki %}
+                    <tr>
+                        <td>{{ ksiazka.tytul }}</td>
+                        <td>{{ ksiazka.autor }}</td>
+                        <td>{{ ksiazka.rok_wydania }}</td>
+                        <td class="akcje">
+                            <a href="{% url 'szczegoly_ksiazki' ksiazka.pk %}">Szczegóły</a>
+                            <a href="{% url 'edytuj_ksiazke' ksiazka.pk %}">Edytuj</a>
+                            <a class="usun" href="{% url 'usun_ksiazke' ksiazka.pk %}">Usuń</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Brak książek spełniających podane kryteria.</p>
+    {% endif %}
+</section>
+{% endblock %}

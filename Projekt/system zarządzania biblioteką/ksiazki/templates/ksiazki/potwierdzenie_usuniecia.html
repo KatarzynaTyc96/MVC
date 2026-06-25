@@ -1,0 +1,14 @@
+{% extends 'ksiazki/baza.html' %}
+
+{% block content %}
+<section class="karta karta-formularza">
+    <h2>Usuń książkę</h2>
+    <p>Czy na pewno chcesz usunąć książkę <strong>{{ ksiazka.tytul }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button class="przycisk przycisk-usun" type="submit">Tak, usuń</button>
+        <a href="{% url 'szczegoly_ksiazki' ksiazka.pk %}">Anuluj</a>
+    </form>
+</section>
+{% endblock %}
