@@ -1,0 +1,35 @@
+[
+    {
+        "model": "ksiazki.ksiazka",
+        "pk": 1,
+        "fields": {
+            "tytul": "Lalka",
+            "autor": "Bolesław Prus",
+            "rok_wydania": 1890,
+            "opis": "Powieść realistyczna opisująca życie społeczne Warszawy w XIX wieku.",
+            "data_dodania": "2026-01-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "ksiazki.ksiazka",
+        "pk": 2,
+        "fields": {
+            "tytul": "Pan Tadeusz",
+            "autor": "Adam Mickiewicz",
+            "rok_wydania": 1834,
+            "opis": "Epopeja narodowa przedstawiająca obraz życia szlachty na Litwie.",
+            "data_dodania": "2026-01-01T10:05:00Z"
+        }
+    },
+    {
+        "model": "ksiazki.ksiazka",
+        "pk": 3,
+        "fields": {
+            "tytul": "Ferdydurke",
+            "autor": "Witold Gombrowicz",
+            "rok_wydania": 1937,
+            "opis": "Utwór pokazujący problem formy i dojrzewania człowieka.",
+            "data_dodania": "2026-01-01T10:10:00Z"
+        }
+    }
+]

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System zarządzania biblioteką</title>
+    <link rel="stylesheet" href="{% static 'ksiazki/styl.css' %}">
+</head>
+<body>
+    <header class="naglowek-strony">
+        <div class="kontener">
+            <h1>System zarządzania biblioteką</h1>
+            <nav>
+                <a href="{% url 'lista_ksiazek' %}">Książki</a>
+                <a href="{% url 'dodaj_ksiazke' %}">Dodaj książkę</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="kontener tresc">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="komunikat">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="stopka">
+        <p>Projekt zaliczeniowy z wykorzystaniem Django i wzorca MVC.</p>
+    </footer>
+</body>
+</html>

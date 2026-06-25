@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+.kontener {
+    width: min(1000px, 92%);
+    margin: 0 auto;
+}
+
+.naglowek-strony {
+    background: #7a5cc1;
+    color: white;
+    padding: 24px 0;
+}
+
+.naglowek-strony h1 {
+    margin: 0 0 12px;
+}
+
+nav a {
+    color: white;
+    margin-right: 16px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tresc {
+    padding: 32px 0;
+}
+
+.karta {
+    background: white;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.gorny-wiersz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.przycisk,
+button {
+    display: inline-block;
+    background: #1976d2;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.przycisk-usun {
+    background: #c62828;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #eef2f5;
+}
+
+.akcje a {
+    margin-right: 10px;
+}
+
+.usun {
+    color: #c62828;
+}
+
+.formularz-filtrowania {
+    margin-top: 16px;
+}
+
+.wiersz-filtrow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.pole-filtra label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.pole-filtra input,
+.pole-filtra select,
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+
+.przyciski-filtrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.karta-formularza {
+    max-width: 640px;
+}
+
+.grupa-formularza {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.blad {
+    color: #c62828;
+    margin-top: 5px;
+}
+
+.komunikat {
+    background: #e8f5e9;
+    border-left: 5px solid #43a047;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.duze-akcje {
+    margin-top: 24px;
+}
+
+.tekst-pomocniczy {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.stopka {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+@media (max-width: 800px) {
+    .wiersz-filtrow {
+        grid-template-columns: 1fr;
+    }
+}

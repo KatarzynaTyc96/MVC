@@ -1,0 +1,31 @@
+{% extends 'ksiazki/baza.html' %}
+
+{% block content %}
+<section class="karta karta-formularza">
+    <h2>{{ naglowek }}</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {% if formularz.non_field_errors %}
+            <div class="blad">{{ formularz.non_field_errors }}</div>
+        {% endif %}
+
+        {% for pole in formularz %}
+            <div class="grupa-formularza">
+                <label for="{{ pole.id_for_label }}">{{ pole.label }}</label>
+                {{ pole }}
+                {% if pole.help_text %}
+                    <small>{{ pole.help_text }}</small>
+                {% endif %}
+                {% if pole.errors %}
+                    <div class="blad">{{ pole.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <p class="tekst-pomocniczy">Tytuł, autor i rok wydania są wymagane. Dane są sprawdzane w przeglądarce oraz na serwerze.</p>
+        <button class="przycisk" type="submit">Zapisz</button>
+        <a href="{% url 'lista_ksiazek' %}">Anuluj</a>
+    </form>
+</section>
+{% endblock %}
